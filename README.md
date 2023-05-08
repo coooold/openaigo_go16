@@ -1,4 +1,4 @@
-# openaigo
+# openaigo fork for go 1.16
 
 [![Go](https://github.com/otiai10/openaigo/actions/workflows/go.yml/badge.svg)](https://github.com/otiai10/openaigo/actions/workflows/go.yml)
 [![CodeQL](https://github.com/otiai10/openaigo/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/otiai10/openaigo/actions/workflows/codeql-analysis.yml)
@@ -87,24 +87,7 @@ Visit https://beta.openai.com/account/api-keys and you can create your own API k
   - [x] [Delete fine-tune model](https://beta.openai.com/docs/api-reference/fine-tunes/delete-model)
 - Moderation
   - [x] [Create moderation](https://beta.openai.com/docs/api-reference/moderations/create)
-- ~~Engines~~ *(deprecated)*
-  - ~~[List engines](https://beta.openai.com/docs/api-reference/engines/list)~~
-  - ~~[Retrieve engine](https://beta.openai.com/docs/api-reference/engines/retrieve)~~
 
-# Need `stream`?
-
-```go
-client := openaigo.NewClient(OPENAI_API_KEY)
-request := openaigo.ChatCompletionRequestBody{
-  Stream: true,
-  StreamCallback: func(res ChatCompletionResponse, done bool, err error) {
-    // Do what you want!
-    // You might need chan handling here.
-    // See test app how you can do it.
-    // https://github.com/otiai10/openaigo/search?q=chat_completion_stream
-  },
-}
-```
 
 # Need Proxy?
 

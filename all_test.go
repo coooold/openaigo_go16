@@ -292,14 +292,7 @@ func testserverV1() *httptest.Server {
 			Stream bool `json:"stream"`
 		}{}
 		json.NewDecoder(req.Body).Decode(&body)
-		if body.Stream {
-			b, _ := ioutil.ReadAll(f)
-			b = append([]byte("data: "), b...)
-			b = append(b, []byte("\n\n\ndata: [DONE]")...)
-			w.Write(b)
-		} else {
-			io.Copy(w, f)
-		}
+		io.Copy(w, f)
 	})
 	return httptest.NewServer(mux)
 }
