@@ -1,7 +1,6 @@
 package openaigo
 
 import (
-	"bufio"
 	"bytes"
 	"context"
 	"encoding/json"
@@ -135,6 +134,6 @@ func call(ctx context.Context, client *Client, method string, p string, body int
 	if err != nil {
 		return resp, err
 	}
-	err = execute(client, req, &resp, cb)
+	err = execute(client, req, &resp)
 	return resp, err
 }
